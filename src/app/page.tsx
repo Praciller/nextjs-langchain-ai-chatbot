@@ -55,7 +55,7 @@ export default function Home() {
           <div className="text-center">
             {/* Logo in Hero Section */}
             <div className="flex justify-center mb-8" data-testid="hero-logo">
-              <LogoWithText size="xl" textSize="2xl" />
+              <LogoWithText size="xl" textSize="xl" />
             </div>
 
             {/* Badge */}
