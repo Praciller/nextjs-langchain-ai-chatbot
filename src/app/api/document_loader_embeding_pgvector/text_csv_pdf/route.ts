@@ -23,12 +23,12 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/server";
-import * as fs from "fs";
-import * as path from "path";
 
 // LangChain & AI SDK Imports
+import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { CSVLoader } from "@langchain/community/document_loaders/fs/csv";
+import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { OpenAIEmbeddings } from "@langchain/openai";
