@@ -58,6 +58,7 @@ import { useRef, useState, useEffect } from "react"; // React Hooks
 import { useChatContext } from "@/contexts/chat-context"; // Context สำหรับจัดการสถานะ chat
 import { useChat } from "@ai-sdk/react"; // Hook สำหรับจัดการ AI chat
 import { createCustomChatTransport } from "@/lib/custom-chat-transport"; // Custom transport สำหรับส่งข้อมูล
+import { LogoIcon } from "@/components/ui/logo"; // Logo component
 import { createClient } from "@/lib/client"; // Supabase client
 import { DEFAULT_MODEL } from "@/constants/models"; // โมเดล AI เริ่มต้น
 import { API_BASE, buildApiUrl } from "@/constants/api"; // API endpoints constants
@@ -461,8 +462,8 @@ export function NewChat() {
               <div className="text-center max-w-3xl mx-auto">
                 {/* Wellness AI Avatar และ Welcome Message */}
                 <div className="mb-8">
-                  <div className="h-20 w-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
-                    <span className="text-white font-bold text-2xl">🧘‍♀️</span>
+                  <div className="mx-auto mb-6 flex items-center justify-center">
+                    <LogoIcon size="2xl" />
                   </div>
                   <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
                     ยินดีต้อนรับสู่ Wellness AI
