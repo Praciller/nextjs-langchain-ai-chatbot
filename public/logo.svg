@@ -1,0 +1,59 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle with Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Circle Background -->
+  <circle cx="60" cy="60" r="58" fill="url(#bgGradient)" />
+  
+  <!-- Lotus Flower Design -->
+  <!-- Center Circle -->
+  <circle cx="60" cy="60" r="12" fill="white" opacity="0.9" />
+  
+  <!-- Lotus Petals -->
+  <!-- Top Petal -->
+  <ellipse cx="60" cy="35" rx="10" ry="18" fill="white" opacity="0.85" />
+  
+  <!-- Top Right Petal -->
+  <ellipse cx="75" cy="42" rx="10" ry="18" fill="white" opacity="0.85" transform="rotate(45 75 42)" />
+  
+  <!-- Right Petal -->
+  <ellipse cx="85" cy="60" rx="10" ry="18" fill="white" opacity="0.85" transform="rotate(90 85 60)" />
+  
+  <!-- Bottom Right Petal -->
+  <ellipse cx="75" cy="78" rx="10" ry="18" fill="white" opacity="0.85" transform="rotate(135 75 78)" />
+  
+  <!-- Bottom Petal -->
+  <ellipse cx="60" cy="85" rx="10" ry="18" fill="white" opacity="0.85" transform="rotate(180 60 85)" />
+  
+  <!-- Bottom Left Petal -->
+  <ellipse cx="45" cy="78" rx="10" ry="18" fill="white" opacity="0.85" transform="rotate(225 45 78)" />
+  
+  <!-- Left Petal -->
+  <ellipse cx="35" cy="60" rx="10" ry="18" fill="white" opacity="0.85" transform="rotate(270 35 60)" />
+  
+  <!-- Top Left Petal -->
+  <ellipse cx="45" cy="42" rx="10" ry="18" fill="white" opacity="0.85" transform="rotate(315 45 42)" />
+  
+  <!-- Decorative Leaves -->
+  <!-- Left Leaf -->
+  <path d="M 25 60 Q 20 50, 25 40 Q 30 50, 25 60 Z" fill="url(#leafGradient)" opacity="0.6" />
+  
+  <!-- Right Leaf -->
+  <path d="M 95 60 Q 100 50, 95 40 Q 90 50, 95 60 Z" fill="url(#leafGradient)" opacity="0.6" />
+  
+  <!-- Wellness Wave at Bottom -->
+  <path d="M 20 90 Q 40 85, 60 90 T 100 90" stroke="white" stroke-width="2" fill="none" opacity="0.7" />
+  
+  <!-- Inner Glow Effect -->
+  <circle cx="60" cy="60" r="55" fill="none" stroke="white" stroke-width="1" opacity="0.3" />
+</svg>
+

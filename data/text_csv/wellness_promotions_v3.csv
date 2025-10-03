@@ -1,0 +1,4 @@
+﻿promo_code,title_th,title_en,start_date,end_date,discount_type,discount_value,applies_to,notes_th,branch_code,booking_channel,booking_link
+NEW10,ลูกค้าใหม่ลด 10%,New Customer 10%,2025-10-01,2025-12-31,percent,10,All Services,สำหรับผู้สมัครสมาชิกครั้งแรก,BKK-01,LINE @healthwellness; Web,https://booking.healthwellnessstudio.co/promotions
+SPAX5,ซื้อสปา 4 แถม 1,Buy 4 Get 1 Spa,2025-10-01,2026-01-31,bogo,4+1,Spa Services,สาขาที่ร่วมรายการ,BKK-01,LINE @healthwellness; Web,https://booking.healthwellnessstudio.co/promotions
+REFER10,แนะนำเพื่อนลดคนละ 10%,Refer a friend 10%,2025-10-01,2026-03-31,percent,10,Memberships,ต้องสมัครวันเดียวกัน,BKK-01,LINE @healthwellness; Web,https://booking.healthwellnessstudio.co/promotions

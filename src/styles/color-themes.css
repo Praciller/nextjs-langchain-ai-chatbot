@@ -1,0 +1,211 @@
+/**
+ * ============================================================================
+ * COLOR THEMES - Multiple Color Scheme Definitions
+ * ============================================================================
+ * 
+ * This file defines CSS variables for different color themes.
+ * Each theme works in both light and dark modes with proper contrast ratios.
+ */
+
+/* ============================================================================ */
+/* NEUTRAL THEME (Default) */
+/* ============================================================================ */
+.theme-neutral {
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --ring: oklch(0.708 0 0);
+}
+
+.dark .theme-neutral {
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --ring: oklch(0.556 0 0);
+}
+
+/* ============================================================================ */
+/* BLUE THEME */
+/* ============================================================================ */
+.theme-blue {
+  --primary: oklch(0.5 0.233 264.376);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.013 264.376);
+  --secondary-foreground: oklch(0.205 0.05 264.376);
+  --accent: oklch(0.96 0.013 264.376);
+  --accent-foreground: oklch(0.205 0.05 264.376);
+  --ring: oklch(0.5 0.233 264.376);
+}
+
+.dark .theme-blue {
+  --primary: oklch(0.7 0.2 264.376);
+  --primary-foreground: oklch(0.1 0.02 264.376);
+  --secondary: oklch(0.25 0.05 264.376);
+  --secondary-foreground: oklch(0.9 0.02 264.376);
+  --accent: oklch(0.25 0.05 264.376);
+  --accent-foreground: oklch(0.9 0.02 264.376);
+  --ring: oklch(0.6 0.15 264.376);
+}
+
+/* ============================================================================ */
+/* GREEN THEME */
+/* ============================================================================ */
+.theme-green {
+  --primary: oklch(0.55 0.15 142.5);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.02 142.5);
+  --secondary-foreground: oklch(0.205 0.05 142.5);
+  --accent: oklch(0.96 0.02 142.5);
+  --accent-foreground: oklch(0.205 0.05 142.5);
+  --ring: oklch(0.55 0.15 142.5);
+}
+
+.dark .theme-green {
+  --primary: oklch(0.7 0.13 142.5);
+  --primary-foreground: oklch(0.1 0.02 142.5);
+  --secondary: oklch(0.25 0.04 142.5);
+  --secondary-foreground: oklch(0.9 0.02 142.5);
+  --accent: oklch(0.25 0.04 142.5);
+  --accent-foreground: oklch(0.9 0.02 142.5);
+  --ring: oklch(0.6 0.12 142.5);
+}
+
+/* ============================================================================ */
+/* PURPLE THEME */
+/* ============================================================================ */
+.theme-purple {
+  --primary: oklch(0.55 0.18 303.9);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.02 303.9);
+  --secondary-foreground: oklch(0.205 0.05 303.9);
+  --accent: oklch(0.96 0.02 303.9);
+  --accent-foreground: oklch(0.205 0.05 303.9);
+  --ring: oklch(0.55 0.18 303.9);
+}
+
+.dark .theme-purple {
+  --primary: oklch(0.7 0.16 303.9);
+  --primary-foreground: oklch(0.1 0.02 303.9);
+  --secondary: oklch(0.25 0.05 303.9);
+  --secondary-foreground: oklch(0.9 0.02 303.9);
+  --accent: oklch(0.25 0.05 303.9);
+  --accent-foreground: oklch(0.9 0.02 303.9);
+  --ring: oklch(0.6 0.14 303.9);
+}
+
+/* ============================================================================ */
+/* ORANGE THEME */
+/* ============================================================================ */
+.theme-orange {
+  --primary: oklch(0.6 0.15 70.08);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.02 70.08);
+  --secondary-foreground: oklch(0.205 0.05 70.08);
+  --accent: oklch(0.96 0.02 70.08);
+  --accent-foreground: oklch(0.205 0.05 70.08);
+  --ring: oklch(0.6 0.15 70.08);
+}
+
+.dark .theme-orange {
+  --primary: oklch(0.75 0.13 70.08);
+  --primary-foreground: oklch(0.1 0.02 70.08);
+  --secondary: oklch(0.25 0.04 70.08);
+  --secondary-foreground: oklch(0.9 0.02 70.08);
+  --accent: oklch(0.25 0.04 70.08);
+  --accent-foreground: oklch(0.9 0.02 70.08);
+  --ring: oklch(0.65 0.12 70.08);
+}
+
+/* ============================================================================ */
+/* RED THEME */
+/* ============================================================================ */
+.theme-red {
+  --primary: oklch(0.55 0.2 27.325);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.02 27.325);
+  --secondary-foreground: oklch(0.205 0.05 27.325);
+  --accent: oklch(0.96 0.02 27.325);
+  --accent-foreground: oklch(0.205 0.05 27.325);
+  --ring: oklch(0.55 0.2 27.325);
+}
+
+.dark .theme-red {
+  --primary: oklch(0.7 0.18 27.325);
+  --primary-foreground: oklch(0.1 0.02 27.325);
+  --secondary: oklch(0.25 0.05 27.325);
+  --secondary-foreground: oklch(0.9 0.02 27.325);
+  --accent: oklch(0.25 0.05 27.325);
+  --accent-foreground: oklch(0.9 0.02 27.325);
+  --ring: oklch(0.6 0.16 27.325);
+}
+
+/* ============================================================================ */
+/* YELLOW THEME */
+/* ============================================================================ */
+.theme-yellow {
+  --primary: oklch(0.65 0.15 84.429);
+  --primary-foreground: oklch(0.1 0.02 84.429);
+  --secondary: oklch(0.96 0.02 84.429);
+  --secondary-foreground: oklch(0.205 0.05 84.429);
+  --accent: oklch(0.96 0.02 84.429);
+  --accent-foreground: oklch(0.205 0.05 84.429);
+  --ring: oklch(0.65 0.15 84.429);
+}
+
+.dark .theme-yellow {
+  --primary: oklch(0.8 0.13 84.429);
+  --primary-foreground: oklch(0.1 0.02 84.429);
+  --secondary: oklch(0.25 0.04 84.429);
+  --secondary-foreground: oklch(0.9 0.02 84.429);
+  --accent: oklch(0.25 0.04 84.429);
+  --accent-foreground: oklch(0.9 0.02 84.429);
+  --ring: oklch(0.7 0.12 84.429);
+}
+
+/* ============================================================================ */
+/* TEAL THEME */
+/* ============================================================================ */
+.theme-teal {
+  --primary: oklch(0.55 0.12 180);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.015 180);
+  --secondary-foreground: oklch(0.205 0.04 180);
+  --accent: oklch(0.96 0.015 180);
+  --accent-foreground: oklch(0.205 0.04 180);
+  --ring: oklch(0.55 0.12 180);
+}
+
+.dark .theme-teal {
+  --primary: oklch(0.7 0.11 180);
+  --primary-foreground: oklch(0.1 0.02 180);
+  --secondary: oklch(0.25 0.04 180);
+  --secondary-foreground: oklch(0.9 0.02 180);
+  --accent: oklch(0.25 0.04 180);
+  --accent-foreground: oklch(0.9 0.02 180);
+  --ring: oklch(0.6 0.1 180);
+}
+
+/* ============================================================================ */
+/* THEME TRANSITIONS */
+/* ============================================================================ */
+:root {
+  transition: 
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: 
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}

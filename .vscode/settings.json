@@ -1,0 +1,12 @@
+{
+  "postman.settings.dotenv-detection-notification-visibility": false,
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    }
+  }
+}

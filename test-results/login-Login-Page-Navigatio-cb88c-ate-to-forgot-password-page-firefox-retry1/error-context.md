@@ -1,0 +1,49 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - link "กลับหน้าหลัก" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img
+      - text: กลับหน้าหลัก
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - img "Health & Wellness Studio Logo" [ref=e14]
+        - generic [ref=e15]: เฮลท์ แอนด์ เวลเนส
+      - heading "เข้าสู่โลกแห่ง สปาและเวลเนส" [level=1] [ref=e16]:
+        - text: เข้าสู่โลกแห่ง
+        - generic [ref=e17]: สปาและเวลเนส
+      - paragraph [ref=e18]: ผู้ช่วยดิจิทัลสำหรับสปาและเวลเนส พร้อมให้คำแนะนำเกี่ยวกับบริการนวด การดูแลสุขภาพ และความงาม
+      - generic [ref=e19]:
+        - generic [ref=e22]: จองคิวออนไลน์ 24/7
+        - generic [ref=e25]: ผู้เชี่ยวชาญด้านสปาและเวลเนส
+        - generic [ref=e28]: บริการครบครันในที่เดียว
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: เข้าสู่ระบบ
+        - generic [ref=e37]: เข้าสู่ระบบเพื่อจองคิวและใช้บริการสปาของเรา
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - paragraph [ref=e41]: "Email: user@demo.com"
+            - paragraph [ref=e42]: "Password: demo123"
+          - button "Auto Fill" [ref=e43]
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: Email
+            - textbox "Email" [ref=e49]
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - generic [ref=e52]: Password
+              - link "ลืมรหัสผ่าน?" [active] [ref=e53] [cursor=pointer]:
+                - /url: /auth/forgot-password
+            - textbox "Password" [ref=e54]
+          - button "เข้าสู่ระบบ" [ref=e55]
+        - generic [ref=e56]:
+          - text: Don't have an account?
+          - link "Sign up" [ref=e57] [cursor=pointer]:
+            - /url: /auth/sign-up
+  - region "Notifications (F8)":
+    - list
+```
