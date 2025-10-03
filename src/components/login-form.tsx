@@ -51,10 +51,8 @@ export function LoginForm({
       );
 
       // Race between login and timeout
-      const { error } = (await Promise.race([
-        loginPromise,
-        timeoutPromise,
-      ])) as any;
+      const result = await Promise.race([loginPromise, timeoutPromise]);
+      const { error } = result as { error: Error | null };
 
       if (error) throw error;
 
