@@ -75,6 +75,7 @@ import {
   Trash2,
 } from "lucide-react"; // Icons จาก Lucide React
 import { LogoutButton } from "@/components/logout-button"; // Component สำหรับ logout
+import { LogoWithText } from "@/components/ui/logo"; // Logo component
 import Link from "next/link"; // Next.js Link สำหรับ navigation
 import { usePathname, useRouter } from "next/navigation"; // Next.js hooks สำหรับ routing
 import { useState, useEffect, useRef } from "react"; // React hooks
@@ -722,14 +723,14 @@ export function ChatSidebar({ display_name, email, userId }: ChatSidebarProps) {
       <SidebarHeader className="flex flex-row items-center justify-between gap-2 px-2 py-4">
         {/* Logo และ App Name */}
         <div className="flex flex-row items-center gap-2 px-2 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center">
-          {/* Wellness AI Logo */}
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
-            <span className="text-white font-bold text-sm">🧘‍♀️</span>
+          {/* Wellness AI Logo - Using LogoWithText component */}
+          <div className="group-data-[collapsible=icon]:hidden">
+            <LogoWithText size="sm" textSize="sm" />
           </div>
 
-          {/* App Name - ซ่อนเมื่อ sidebar collapsed */}
-          <div className="text-md font-bold text-slate-900 dark:text-white tracking-tight group-data-[collapsible=icon]:hidden">
-            Wellness AI
+          {/* Collapsed Logo - Show only icon when sidebar is collapsed */}
+          <div className="hidden group-data-[collapsible=icon]:flex h-8 w-8 rounded-lg bg-gradient-to-r from-green-500 to-teal-600 items-center justify-center">
+            <LogoWithText size="sm" textSize="sm" showText={false} />
           </div>
         </div>
 
