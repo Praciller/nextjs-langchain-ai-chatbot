@@ -75,7 +75,7 @@ import {
   Trash2,
 } from "lucide-react"; // Icons จาก Lucide React
 import { LogoutButton } from "@/components/logout-button"; // Component สำหรับ logout
-import { LogoWithText } from "@/components/ui/logo"; // Logo component
+import { LogoWithText, LogoIcon } from "@/components/ui/logo"; // Logo components
 import Link from "next/link"; // Next.js Link สำหรับ navigation
 import { usePathname, useRouter } from "next/navigation"; // Next.js hooks สำหรับ routing
 import { useState, useEffect, useRef } from "react"; // React hooks
@@ -729,8 +729,8 @@ export function ChatSidebar({ display_name, email, userId }: ChatSidebarProps) {
           </div>
 
           {/* Collapsed Logo - Show only icon when sidebar is collapsed */}
-          <div className="hidden group-data-[collapsible=icon]:flex h-8 w-8 rounded-lg bg-gradient-to-r from-green-500 to-teal-600 items-center justify-center">
-            <LogoWithText size="sm" textSize="sm" showText={false} />
+          <div className="hidden group-data-[collapsible=icon]:flex">
+            <LogoIcon size="sm" />
           </div>
         </div>
 
