@@ -2,6 +2,12 @@
 
 Production-style RAG chatbot for wellness and spa customer support. The project demonstrates how to turn documents, service information, and chat history into grounded AI answers with authentication, vector retrieval, streaming UX, and provider-flexible model integration.
 
+## Preview
+
+![Wellness AI Assistant home page](tests/home.spec.ts-snapshots/home-page-chromium-win32.png)
+
+![Wellness AI Assistant hero section](tests/home.spec.ts-snapshots/hero-section-chromium-win32.png)
+
 ## Role Fit
 
 | Target role | Evidence shown in this repo |
