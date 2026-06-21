@@ -19,12 +19,6 @@ const nextConfig: NextConfig = {
 
   // Externalize large server-side packages to reduce bundle size
   serverExternalPackages: [
-    "langchain",
-    "@langchain/core",
-    "@langchain/community",
-    "@langchain/openai",
-    "pdf-parse",
-    "pg",
     "shiki",
   ],
 

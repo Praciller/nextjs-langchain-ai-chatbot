@@ -1,4 +1,4 @@
-export const API_BASE = '/api/chat_09_rag_tool_calling'
+export const API_BASE = '/api/chat'
 
 export const API_BASE_SESSION = '/api/chat_09_rag_tool_calling/session'
 

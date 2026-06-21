@@ -56,11 +56,7 @@ import {
 } from "lucide-react"; // Icons จาก Lucide React
 import { useRef, useState, useEffect } from "react"; // React Hooks
 import { useChatContext } from "@/contexts/chat-context"; // Context สำหรับจัดการสถานะ chat
-import { useChat } from "@ai-sdk/react"; // Hook สำหรับจัดการ AI chat
-import { createCustomChatTransport } from "@/lib/custom-chat-transport"; // Custom transport สำหรับส่งข้อมูล
 import { LogoIcon } from "@/components/ui/logo"; // Logo component
-import { createClient } from "@/lib/client"; // Supabase client
-import { DEFAULT_MODEL } from "@/constants/models"; // โมเดล AI เริ่มต้น
 import { API_BASE, buildApiUrl } from "@/constants/api"; // API endpoints constants
 
 /**
@@ -118,12 +114,11 @@ const samplePrompts: SamplePrompt[] = [
   },
 ];
 
-export function NewChat() {
+export function NewChat({ providerLabel }: { providerLabel: string }) {
   // ============================================================================
   // STEP 1: STATE DECLARATIONS - การประกาศตัวแปร State
   // ============================================================================
 
-  const [selectedModel, setSelectedModel] = useState(DEFAULT_MODEL); // โมเดล AI ที่เลือก (ค่าเริ่มต้นจาก constants)
 
   /**
    * ข้อความที่ผู้ใช้พิมพ์ในช่อง input
@@ -156,7 +151,7 @@ export function NewChat() {
    * ID ของผู้ใช้ที่ล็อกอินอยู่ในปัจจุบัน
    * ใช้สำหรับการระบุตัวตนและบันทึกข้อมูล
    */
-  const [userId, setUserId] = useState<string>("");
+  const userId = "local-chat";
 
   /**
    * ID ของ session การสนทนาปัจจุบัน
@@ -238,60 +233,13 @@ export function NewChat() {
   // ============================================================================
   // STEP 3: CHAT HOOK INITIALIZATION - การตั้งค่า useChat Hook
   // ============================================================================
-  const { messages, sendMessage, status, setMessages, stop } = useChat({
-    transport: createCustomChatTransport({
-      api: API_BASE, // API endpoint สำหรับส่งข้อความ
-
-      onResponse: (response: Response) => {
-        const newSessionId = response.headers.get("x-session-id"); // ดึง session ID จาก header
-        if (newSessionId) {
-          console.log("Received new session ID:", newSessionId);
-          setSessionId(newSessionId); // อัปเดต session ID ใน state
-          localStorage.setItem("currentSessionId", newSessionId); // บันทึก sessionId ล่าสุดไว้ใน localStorage
-        }
-      },
-    }),
-  });
+  const [messages, setMessages] = useState<MessageType[]>([]);
+  const [status, setStatus] = useState<"ready" | "submitted" | "streaming">("ready");
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   // ============================================================================
   // STEP 4: AUTHENTICATION EFFECT - การตรวจสอบและจัดการ Authentication
   // ============================================================================
-
-  useEffect(() => {
-    const supabase = createClient(); // สร้าง Supabase client
-    const getUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser(); // ดึงข้อมูล user
-      if (user) {
-        setUserId(user.id); // เก็บ user ID
-
-        const savedSessionId = localStorage.getItem("currentSessionId");
-        if (savedSessionId && showWelcome) {
-          setSessionId(savedSessionId); // ตั้งค่า session ID
-          setShowWelcome(false); // ซ่อน welcome เพื่อแสดงประวัติ
-        }
-      }
-    };
-
-    getUser(); // เรียกใช้ฟังก์ชัน
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session?.user) {
-        setUserId(session.user.id); // เก็บ user ID
-      } else {
-        setUserId(""); // ล้าง user ID
-      }
-    });
-
-    /**
-     * Cleanup function
-     * ยกเลิก subscription เมื่อ component unmount
-     */
-    return () => subscription.unsubscribe();
-  }, [setShowWelcome, showWelcome]);
 
   // ============================================================================
   // STEP 5: UI FOCUS EFFECT - การจัดการ Focus ของ UI
@@ -332,7 +280,7 @@ export function NewChat() {
   // ============================================================================
   // STEP 8: EVENT HANDLER FUNCTIONS - ฟังก์ชันจัดการ Events
   // ============================================================================
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // ตรวจสอบ userId และข้อความว่าง
     if (!prompt.trim() || !userId) return;
 
@@ -341,12 +289,36 @@ export function NewChat() {
       parts: [{ type: "text" as const, text: prompt.trim() }],
     };
 
-    sendMessage(messageToSend, {
-      body: {
-        userId: userId, // ส่ง user ID สำหรับการระบุตัวตน
-        sessionId: sessionId, // ส่ง session ID สำหรับความต่อเนื่อง
-      },
-    });
+    const nextMessages = [...messages, { ...messageToSend, id: crypto.randomUUID() }];
+    setMessages(nextMessages);
+    setStatus("submitted");
+    abortControllerRef.current = new AbortController();
+
+    try {
+      const response = await fetch(API_BASE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: nextMessages }),
+        signal: abortControllerRef.current.signal,
+      });
+      const data = await response.json();
+      if (!response.ok || typeof data.text !== "string") throw new Error(data.error || "Chat request failed");
+      setStatus("streaming");
+      setMessages((current) => [
+        ...current,
+        { id: crypto.randomUUID(), role: "assistant", parts: [{ type: "text", text: data.text }] },
+      ]);
+    } catch (error) {
+      if (!(error instanceof DOMException && error.name === "AbortError")) {
+        setMessages((current) => [
+          ...current,
+          { id: crypto.randomUUID(), role: "assistant", parts: [{ type: "text", text: "The chat request could not be completed." }] },
+        ]);
+      }
+    } finally {
+      abortControllerRef.current = null;
+      setStatus("ready");
+    }
 
     // รีเซ็ต UI state
     setPrompt(""); // ล้างข้อความใน input
@@ -358,7 +330,7 @@ export function NewChat() {
   };
 
   const handleStop = () => {
-    stop(); // หยุดการส่งข้อความ
+    abortControllerRef.current?.abort();
   };
 
   const handleCopyMessage = async (content: string, messageId: string) => {
@@ -421,8 +393,7 @@ export function NewChat() {
         <div className="text-foreground flex-1">New Chat</div> {/* ชื่อหน้า */}
         {/* Model Selector */}
         <ModelSelector
-          selectedModel={selectedModel}
-          onModelChange={setSelectedModel}
+          selectedModel={providerLabel}
         />
       </header>
 
