@@ -2,6 +2,8 @@
 
 Local-first Next.js chatbot demonstrating deterministic mock chat and optional multi-provider routing. The default review path requires no API key, Supabase project, database, or network call.
 
+Public scope: this is a mock-first chat demonstration. The default path does not implement retrieval, bookings, or a deployed provider-backed production service.
+
 ## Local review
 
 ```powershell
