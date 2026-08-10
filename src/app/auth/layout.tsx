@@ -56,24 +56,23 @@ export default function AuthLayout({
             </h1>
 
             <p className="text-xl text-green-100 mb-8 leading-relaxed">
-              ผู้ช่วยดิจิทัลสำหรับสปาและเวลเนส พร้อมให้คำแนะนำเกี่ยวกับบริการนวด
-              การดูแลสุขภาพ และความงาม
+              ผู้ช่วยแชตแบบ Mock-first สำหรับสาธิตหัวข้อสปาและเวลเนส
             </p>
 
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <div className="h-2 w-2 rounded-full bg-green-400"></div>
-                <span className="text-green-100">จองคิวออนไลน์ 24/7</span>
+                <span className="text-green-100">โหมด Mock ใช้งานได้โดยไม่ต้องใช้คีย์ API</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="h-2 w-2 rounded-full bg-green-400"></div>
                 <span className="text-green-100">
-                  ผู้เชี่ยวชาญด้านสปาและเวลเนส
+                  เลือก provider ภายนอกได้เมื่อกำหนดค่า
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="h-2 w-2 rounded-full bg-green-400"></div>
-                <span className="text-green-100">บริการครบครันในที่เดียว</span>
+                <span className="text-green-100">ไม่มีการจองจริงหรือการดึงข้อมูล</span>
               </div>
             </div>
           </div>

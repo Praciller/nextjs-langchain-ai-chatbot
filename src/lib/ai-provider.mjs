@@ -14,9 +14,9 @@ const EXTERNAL_CONFIG = {
 }
 
 const MOCK_RESPONSES = {
-  hours: "Mock response: The wellness studio is open daily from 9:00 AM to 9:00 PM.",
-  booking: "Mock response: This local demo cannot create bookings. Please contact the studio to confirm availability.",
-  services: "Mock response: The sample knowledge base includes massage, spa, wellness membership, and promotion information.",
+  hours: "Mock response: This demo can answer example opening-hours questions; confirm any real hours with the venue.",
+  booking: "Mock response: This demo can simulate planning questions, but it cannot create or confirm real bookings.",
+  services: "Mock response: This demo can discuss example spa, wellness membership, and promotion topics.",
   default: "Mock response: I am the deterministic local assistant. External AI and network access are disabled in this review mode.",
 }
 

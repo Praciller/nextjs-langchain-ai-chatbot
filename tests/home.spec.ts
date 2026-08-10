@@ -87,14 +87,21 @@ test.describe("Home Page", () => {
     test("should display feature icons", async () => {
       // Verify first three feature cards have icons
       await expect(homePage.spaFeatureCard).toBeVisible();
-      await expect(homePage.bookingFeatureCard).toBeVisible();
+      await expect(homePage.planningFeatureCard).toBeVisible();
       await expect(homePage.healthFeatureCard).toBeVisible();
     });
 
     test("should display feature descriptions in Thai", async ({ page }) => {
-      await expect(page.getByText("บริการนวดแผนไทย นวดอโรมา")).toBeVisible();
-      await expect(page.getByText("จองคิวบริการสปา")).toBeVisible();
-      await expect(page.getByText("คำแนะนำการดูแลสุขภาพ")).toBeVisible();
+      await expect(page.getByText("สำรวจตัวอย่างคำถามเกี่ยวกับการนวด")).toBeVisible();
+      await expect(page.getByText("ทดลองถามเกี่ยวกับการวางแผนจองบริการ")).toBeVisible();
+      await expect(page.getByText("ทดลองการสนทนาแบบ Mock")).toBeVisible();
+    });
+
+    test("should communicate the implemented product boundaries", async ({ page }) => {
+      const publicText = await page.locator("main").innerText();
+      expect(publicText).toContain("เดโมนี้ไม่ทำการจองจริง");
+      expect(publicText).toContain("โหมด Mock");
+      expect(publicText).not.toMatch(/5K\+|98%|10\+|24\/7|รับการยืนยันทันที/);
     });
   });
 
@@ -103,10 +110,10 @@ test.describe("Home Page", () => {
       await homePage.verifyStatsSection();
     });
 
-    test("should display customer statistics", async () => {
-      await expect(homePage.customerCount).toHaveText("5K+");
-      await expect(homePage.satisfactionRate).toHaveText("98%");
-      await expect(homePage.experienceYears).toHaveText("10+");
+    test("should display factual scope information", async () => {
+      await expect(homePage.mockModeFact).toContainText("โหมด Mock");
+      await expect(homePage.providerRoutingFact).toHaveText("Provider routing");
+      await expect(homePage.scopeBoundaryFact).toHaveText("ขอบเขตชัดเจน");
     });
 
     test("should have gradient background", async ({ page }) => {

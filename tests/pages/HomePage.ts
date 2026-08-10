@@ -30,14 +30,14 @@ export class HomePage {
   readonly featuresSection: Locator;
   readonly featureCards: Locator;
   readonly spaFeatureCard: Locator;
-  readonly bookingFeatureCard: Locator;
+  readonly planningFeatureCard: Locator;
   readonly healthFeatureCard: Locator;
 
   // Stats Section Elements
   readonly statsSection: Locator;
-  readonly customerCount: Locator;
-  readonly satisfactionRate: Locator;
-  readonly experienceYears: Locator;
+  readonly mockModeFact: Locator;
+  readonly providerRoutingFact: Locator;
+  readonly scopeBoundaryFact: Locator;
 
   // Footer Elements
   readonly footer: Locator;
@@ -65,24 +65,24 @@ export class HomePage {
     // Features Section - Using test IDs for reliability
     this.featuresSection = page
       .locator("main > div > div")
-      .filter({ hasText: "บริการสปาและการนวด" });
+      .filter({ hasText: "ตัวอย่างหัวข้อบริการ" });
     // Use test IDs to locate feature cards
     this.featureCards = page.locator('[data-testid^="feature-card-"]');
     this.spaFeatureCard = page.getByRole("heading", {
-      name: "บริการสปาและการนวด",
+      name: "ตัวอย่างหัวข้อบริการ",
     });
-    this.bookingFeatureCard = page.getByRole("heading", {
-      name: "จองคิวและนัดหมาย",
+    this.planningFeatureCard = page.getByRole("heading", {
+      name: "จำลองการวางแผน",
     });
     this.healthFeatureCard = page.getByRole("heading", {
       name: "คำแนะนำด้านสุขภาพ",
     });
 
     // Stats Section
-    this.statsSection = page.getByText("ความไว้วางใจจากลูกค้า");
-    this.customerCount = page.getByText("5K+");
-    this.satisfactionRate = page.getByText("98%");
-    this.experienceYears = page.getByText("10+");
+    this.statsSection = page.getByText("ขอบเขตของเดโม");
+    this.mockModeFact = page.getByText("โหมด Mock");
+    this.providerRoutingFact = page.getByText("Provider routing");
+    this.scopeBoundaryFact = page.getByText("ขอบเขตชัดเจน");
 
     // Footer
     this.footer = page.locator("footer");
@@ -153,12 +153,12 @@ export class HomePage {
    */
   async verifyFeaturesSection() {
     await expect(this.spaFeatureCard).toBeVisible();
-    await expect(this.bookingFeatureCard).toBeVisible();
+    await expect(this.planningFeatureCard).toBeVisible();
     await expect(this.healthFeatureCard).toBeVisible();
 
-    // Verify we have at least 6 feature cards
+    // The landing page intentionally keeps three focused feature cards.
     const cardCount = await this.featureCards.count();
-    expect(cardCount).toBeGreaterThanOrEqual(6);
+    expect(cardCount).toBe(3);
   }
 
   /**
@@ -166,9 +166,9 @@ export class HomePage {
    */
   async verifyStatsSection() {
     await expect(this.statsSection).toBeVisible();
-    await expect(this.customerCount).toBeVisible();
-    await expect(this.satisfactionRate).toBeVisible();
-    await expect(this.experienceYears).toBeVisible();
+    await expect(this.mockModeFact).toBeVisible();
+    await expect(this.providerRoutingFact).toBeVisible();
+    await expect(this.scopeBoundaryFact).toBeVisible();
   }
 
   /**

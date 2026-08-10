@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "เฮลท์ แอนด์ เวลเนส สตูดิโอ | Wellness AI Assistant",
   description:
-    "ผู้ช่วยดิจิทัลสำหรับสปาและเวลเนส พร้อมให้คำแนะนำเกี่ยวกับบริการนวด การดูแลสุขภาพ และความงาม จองคิวออนไลน์ได้ตลอด 24 ชั่วโมง",
+    "เดโมแชตแบบ Mock-first สำหรับสาธิตการสนทนาเกี่ยวกับสปาและเวลเนส โดยไม่ต้องใช้คีย์ API",
 };
 
 export default function RootLayout({
