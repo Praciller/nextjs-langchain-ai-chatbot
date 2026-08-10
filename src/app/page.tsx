@@ -91,7 +91,7 @@ export default function Home() {
               พร้อมให้คำแนะนำเกี่ยวกับบริการนวด การดูแลสุขภาพ และความงาม
               <br />
               <span className="font-semibold text-green-700 dark:text-green-300">
-                จองคิว ปรึกษาบริการ และรับคำแนะนำส่วนบุคคลได้ตลอด 24 ชั่วโมง
+                เดโมการสนทนาแบบ Mock-first ที่ช่วยสำรวจหัวข้อสปาและเวลเนสโดยไม่ทำการจองจริง
               </span>
               <br />
               ประสบการณ์การดูแลสุขภาพและความงามที่ล้ำสมัย ด้วยเทคโนโลยี AI
@@ -132,13 +132,13 @@ export default function Home() {
                   <span className="text-2xl">💆‍♀️</span>
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
-                  บริการสปาและการนวด
+                  ตัวอย่างหัวข้อบริการ
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  บริการนวดแผนไทย นวดอโรมา และทรีทเมนต์ความงาม
+                  สำรวจตัวอย่างคำถามเกี่ยวกับการนวด การดูแลสุขภาพ และความงาม
                   <br />
                   <span className="text-green-700 dark:text-green-300 font-medium">
-                    ผ่อนคลาย ฟื้นฟูร่างกาย
+                    เนื้อหาสำหรับการสาธิต
                   </span>
                 </p>
               </CardContent>
@@ -154,13 +154,13 @@ export default function Home() {
                   <span className="text-2xl">📅</span>
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
-                  จองคิวและนัดหมาย
+                  จำลองการวางแผน
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  จองคิวบริการสปา เลือกเวลาที่สะดวก และรับการยืนยันทันที
+                  ทดลองถามเกี่ยวกับการวางแผนจองบริการในบทสนทนาตัวอย่าง
                   <br />
                   <span className="text-teal-700 dark:text-teal-300 font-medium">
-                    ระบบจองออนไลน์ 24/7
+                    เดโมนี้ไม่ทำการจองจริง
                   </span>
                 </p>
               </CardContent>
@@ -176,13 +176,13 @@ export default function Home() {
                   <span className="text-2xl">🤖</span>
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
-                  ผู้ช่วย AI อัจฉริยะ
+                  ผู้ช่วย AI สำหรับเดโม
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  คำแนะนำการดูแลสุขภาพ ความงาม และการผ่อนคลายตลอด 24 ชั่วโมง
+                  ทดลองการสนทนาแบบ Mock หรือเลือก provider ภายนอกเมื่อกำหนดค่า
                   <br />
                   <span className="text-emerald-700 dark:text-emerald-300 font-medium">
-                    ตอบคำถามและให้คำปรึกษาทันที
+                    ทำงานได้โดยไม่ต้องใช้คีย์ API
                   </span>
                 </p>
               </CardContent>
@@ -195,27 +195,25 @@ export default function Home() {
             data-testid="stats-gradient-section"
           >
             <h2 className="text-3xl font-bold mb-8 sm:text-4xl">
-              ความไว้วางใจจากลูกค้า
+              ขอบเขตของเดโม
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
               <div>
-                <div className="text-4xl font-bold sm:text-5xl">5K+</div>
-                <div className="mt-2 text-green-100">ลูกค้าประจำ</div>
+                <div className="text-xl font-bold sm:text-2xl">โหมด Mock</div>
+                <div className="mt-2 text-green-100">เป็นค่าเริ่มต้น</div>
               </div>
               <div>
-                <div className="text-4xl font-bold sm:text-5xl">98%</div>
-                <div className="mt-2 text-green-100">ความพึงพอใจ</div>
+                <div className="text-xl font-bold sm:text-2xl">Provider routing</div>
+                <div className="mt-2 text-green-100">ใช้เมื่อกำหนดค่า</div>
               </div>
               <div>
-                <div className="text-4xl font-bold sm:text-5xl">10+</div>
-                <div className="mt-2 text-green-100">
-                  ปีประสบการณ์ด้านสปาและเวลเนส
-                </div>
+                <div className="text-xl font-bold sm:text-2xl">ขอบเขตชัดเจน</div>
+                <div className="mt-2 text-green-100">ไม่มีการจองจริงหรือการดึงข้อมูล</div>
               </div>
             </div>
             <div className="mt-8 text-lg text-green-100">
               <span className="font-semibold">
-                เปิดบริการทุกวัน 9:00-21:00 น. | ทีมผู้เชี่ยวชาญ | มาตรฐานสากล
+                เดโมเพื่อการเรียนรู้ | ไม่มีการจองจริง | ไม่มีการดึงข้อมูลในเส้นทางนี้
               </span>
             </div>
           </div>

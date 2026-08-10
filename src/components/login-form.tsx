@@ -94,7 +94,7 @@ export function LoginForm({
             เข้าสู่ระบบ
           </CardTitle>
           <CardDescription data-testid="login-description">
-            เข้าสู่ระบบเพื่อจองคิวและใช้บริการสปาของเรา
+            เข้าสู่เดโมเพื่อทดลองการสนทนาแบบ Mock โดยไม่มีการจองจริง
           </CardDescription>
           <div
             className="mt-2 px-4 bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 p-2 rounded-lg border border-emerald-200 dark:border-emerald-800"

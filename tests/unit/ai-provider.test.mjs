@@ -21,6 +21,14 @@ test("mock responses are deterministic and need no key", () => {
   assert.equal(createProvider(mockEnv).id, "mock")
 })
 
+test("mock responses keep booking and retrieval boundaries explicit", () => {
+  const booking = getMockResponse("Can I book an appointment?")
+  const services = getMockResponse("Tell me about spa services")
+
+  assert.match(booking, /cannot create or confirm real bookings/i)
+  assert.doesNotMatch(services, /knowledge base|retrieval|RAG|vector/i)
+})
+
 test("mock mode overrides external provider selection", () => {
   const provider = createProvider({ ...mockEnv, AI_PROVIDER: "qwen36" })
   assert.equal(provider.id, "mock")
