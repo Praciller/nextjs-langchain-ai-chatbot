@@ -15,9 +15,9 @@ const report = `# Local Chat Report
 | --- | --- |
 ${rows}
 
-## Provider routing
+## Inference routing
 
-Mock is the default. Gemini, Groq, Cerebras, and Qwen 3.6 require explicit selection, \`ENABLE_EXTERNAL_AI=true\`, and their server-side credentials. \`MOCK_AI_MODE=true\` overrides external selection.
+Mock is the default. Optional external inference requires explicit selection, \`ENABLE_EXTERNAL_AI=true\`, and server-side credentials. \`MOCK_AI_MODE=true\` overrides external selection.
 
 ## Limitations
 
