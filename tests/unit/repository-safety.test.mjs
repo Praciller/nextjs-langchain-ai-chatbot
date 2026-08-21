@@ -19,11 +19,14 @@ test("external secrets have no NEXT_PUBLIC client exposure", async () => {
   assert.doesNotMatch(clientSource, /EXTERNAL_AI_API_KEY/)
 })
 
-test("active chat has no legacy AI SDK or LangChain dependency", async () => {
+test("active chat has no legacy AI SDK or orchestration dependency", async () => {
   const packageJson = JSON.parse(await readFile("package.json", "utf8"))
-  for (const name of ["ai", "@ai-sdk/react", "@ai-sdk/langchain", "langchain", "@langchain/core", "@langchain/community", "@langchain/openai"]) {
-    assert.equal(packageJson.dependencies?.[name], undefined)
-  }
+  const dependencies = Object.keys(packageJson.dependencies ?? {})
+  assert.equal(dependencies.includes("ai"), false)
+  assert.equal(dependencies.some((name) => name.startsWith("@ai-sdk/")), false)
+  assert.equal(dependencies.includes("langchain"), false)
+  assert.equal(dependencies.some((name) => name.startsWith("@langchain/")), false)
+
   const clientSource = await readFile("src/components/new-chat.tsx", "utf8")
   assert.doesNotMatch(clientSource, /@ai-sdk|langchain/i)
 })
