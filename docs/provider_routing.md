@@ -1,15 +1,12 @@
-# Provider routing
+# Inference routing
 
 | `AI_PROVIDER` | Required configuration | UI label |
 | --- | --- | --- |
 | `mock` | None | Mock (local) |
-| `gemini` | `GEMINI_API_KEY` | Gemini |
-| `groq` | `GROQ_API_KEY` | Groq |
-| `cerebras` | `CEREBRAS_API_KEY` | Cerebras |
-| `qwen36` | `QWEN36_API_KEY`, `QWEN36_BASE_URL` | Qwen 3.6 |
+| `external` | `EXTERNAL_AI_API_KEY`, `EXTERNAL_AI_BASE_URL`, `EXTERNAL_AI_MODEL` | External inference |
 
-Mock is the default. `MOCK_AI_MODE=true` overrides every external selection. External requests require `ENABLE_EXTERNAL_AI=true`, an explicit non-mock `AI_PROVIDER`, and that provider's key.
+Mock is the default. `MOCK_AI_MODE=true` overrides external selection. External requests require `ENABLE_EXTERNAL_AI=true`, `AI_PROVIDER=external`, and complete server-side endpoint configuration.
 
-Qwen 3.6 uses an OpenAI-compatible chat-completions request. `QWEN36_MODEL` defaults to `qwen3.6-35b-a3b`; `QWEN36_CHAT_COMPLETIONS_PATH` defaults to `/v1/chat/completions`.
+The external adapter sends a generic chat request to `EXTERNAL_AI_BASE_URL` plus `EXTERNAL_AI_CHAT_PATH`, which defaults to `/v1/chat/completions`. The configured service must return generated text at `choices[0].message.content`.
 
-Keys are read only by server code. Do not use `NEXT_PUBLIC_` for credentials. Provider failures return a generic message without upstream response bodies, credentials, or authorization headers.
+Keys are read only by server code. Do not use `NEXT_PUBLIC_` for credentials. External failures return a generic message without upstream response bodies, credentials, or authorization headers.
